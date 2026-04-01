@@ -1,1 +1,1 @@
-web: gunicorn EnglishApp.wsgi
+web: gunicorn backend.wsgi:application
