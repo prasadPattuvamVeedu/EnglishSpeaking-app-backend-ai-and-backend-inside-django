@@ -209,7 +209,7 @@ USER
 
     llm = ChatGroq(
         groq_api_key=os.getenv("GROQ_API_KEY"),
-        model_name="openai/gpt-oss-safeguard-20b"
+        model_name="groq/compound-mini"
     )
 
     chain = prompt | llm
