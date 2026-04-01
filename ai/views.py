@@ -209,7 +209,7 @@ USER
 
     llm = ChatGroq(
         groq_api_key=os.getenv("GROQ_API_KEY"),
-        model_name="groq/compound-mini"
+        model_name="llama-3.1-8b-instant"
     )
 
     chain = prompt | llm
