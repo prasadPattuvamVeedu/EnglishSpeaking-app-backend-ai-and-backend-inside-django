@@ -6,10 +6,10 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import ExtractedInformation
 import json
 import tempfile
-import whisper
+from groq import Groq
 
 # 🔥 Load Whisper (fast model)
-model = whisper.load_model("tiny")
+
 
 
 # ------------------- WELCOME -------------------
@@ -20,10 +20,17 @@ def welcome(request):
     })
 
 
+
+
+
+
+client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
+
 # ------------------- SPEECH -------------------
 
 @csrf_exempt
 def speech_to_text(request):
+   
     print("🔥 API HIT")
 
     if request.method == "POST":
@@ -43,10 +50,15 @@ def speech_to_text(request):
 
             # 🤖 Whisper
             print("🤖 Running whisper...")
-            result = model.transcribe(temp_path)
+            with open(temp_path, "rb") as f:
+                transcription = client.audio.transcriptions.create(
+                    file=f,
+                    model="whisper-large-v3")
+            
+            
             print("✅ Whisper done")
 
-            text = result.get("text", "")
+            text = transcription.get("text", "")
             print("📝 TEXT:", text)
 
             # 🤖 AI response
