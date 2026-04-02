@@ -1,5 +1,4 @@
 import os
-os.environ["PATH"] += os.pathsep + r"C:\ffmpeg\bin"   # ✅ FFmpeg fix
 
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -14,10 +13,7 @@ from groq import Groq
 
 # ------------------- WELCOME -------------------
 
-def welcome(request):
-    return JsonResponse({
-        "message": "welcome to english learning app"
-    })
+
 
 
 
