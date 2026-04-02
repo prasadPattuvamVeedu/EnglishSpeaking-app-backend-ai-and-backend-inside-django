@@ -15,7 +15,11 @@ from groq import Groq
 
 
 
-
+def welcome(request):
+    return JsonResponse({
+        "status": "running",
+        "message": "English Learning API working"
+    })
 
 
 
