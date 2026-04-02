@@ -4,6 +4,18 @@ from rest_framework.authtoken.models import Token
 from django.views.decorators.csrf import csrf_exempt
 import json
 
+
+def welcome(request):
+    return JsonResponse({
+        "status": "running",
+        "message": "English Learning API working"
+    })
+
+
+
+
+
+
 User = get_user_model()
 
 @csrf_exempt

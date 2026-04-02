@@ -15,13 +15,6 @@ from groq import Groq
 
 
 
-def welcome(request):
-    return JsonResponse({
-        "status": "running",
-        "message": "English Learning API working"
-    })
-
-
 
 
 client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
