@@ -24,7 +24,7 @@ client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 @csrf_exempt
 def speech_to_text(request):
    
-    print("🔥 API HIT")
+    print(" API HIT")
 
     if request.method == "POST":
         try:
