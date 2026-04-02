@@ -51,7 +51,7 @@ def speech_to_text(request):
             
             print("✅ Whisper done")
 
-            text = transcription.get("text", "")
+            text = transcription.text
             print("📝 TEXT:", text)
 
             # 🤖 AI response
